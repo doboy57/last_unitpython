@@ -9,3 +9,7 @@ class topic(models.Model):
 
     def __str__(self):
         return self.text
+class Entry(models.Model):
+    topic = models.ForeignKey(topic,on_delete=models.CASCADE)
+    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
